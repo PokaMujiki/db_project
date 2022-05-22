@@ -10,6 +10,9 @@ from polls.validators import *
 class TradePointType(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
 
+    def __str__(self):
+        return self.name
+
 
 class TradePoint(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
@@ -18,6 +21,66 @@ class TradePoint(models.Model):
     rent_payment = models.IntegerField(null=True, blank=True, validators=[validate_gt_0])
     utilities_payment = models.IntegerField(null=True, blank=True, validators=[validate_gt_0])
     point_counter_amount = models.IntegerField(null=True, blank=True, validators=[validate_gt_0])
+
+    def save(self, *args, **kwargs):
+        is_save = True
+        # execute only on update
+        if self.id is not None:
+            is_save = False
+            old = TradePoint.objects.get(pk=self.id)
+            department_store = TradePointType.objects.get(pk=1)
+            store = TradePointType.objects.get(pk=2)
+            kiosk = TradePointType.objects.get(pk=3)
+            tray = TradePointType.objects.get(pk=4)
+            if self.point_type != old.point_type:
+                # DepartmentStore -> Store
+                if old.point_type == department_store and self.point_type == store:
+                    DepartmentStore.objects.get(trade_point=SomeStore.objects.get(trade_point=old)).delete()
+                # Store -> DepartmentStore
+                if old.point_type == store and self.point_type == department_store:
+                    DepartmentStore(trade_point=SomeStore.objects.get(trade_point=old)).save()
+                # DepartmentStore, Store -> Kiosk, Tray
+                if (old.point_type == department_store or old.point_type == store) \
+                        and (self.point_type == kiosk or self.point_type == tray):
+                    SomeStore.objects.get(trade_point=old).delete()
+                # Kiosk, Tray -> Store, DepartmentStore
+                if (old.point_type == kiosk or old.point_type == tray) \
+                        and (self.point_type == store or self.point_type == department_store):
+                    # Kiosk, Tray -> Store
+                    s = SomeStore(trade_point=self)
+                    s.save()
+                    # Kiosk, Tray -> DepartmentStore
+                    if self.point_type == department_store:
+                        DepartmentStore(trade_point=s).save()
+        # execute anyway
+        super(TradePoint, self).save(*args, **kwargs)
+        # execute only on save
+        if is_save and (self.point_type == TradePointType.objects.get(pk=1)
+                        or self.point_type == TradePointType.objects.get(pk=2)):
+            s = SomeStore(trade_point=self)
+            s.save()
+            if self.point_type == TradePointType.objects.get(pk=1):
+                d = DepartmentStore(trade_point=s)
+                d.save()
+
+    def __str__(self):
+        return self.name + " | " + self.point_type.__str__()
+
+    def update(self, *args, **kwargs):
+        print('update trade point')
+        # old = TradePoint.objects.get(pk=self.id)
+        # # 1,2 -> 3,4
+        # if (old.point_type == TradePointType.objects.get(pk=1) or old.point_type == TradePointType.objects.get(pk=2)) \
+        #         and self.point_type != TradePointType.objects.get(pk=1) \
+        #         and self.point_type != TradePointType.objects.get(pk=2):
+        #     SomeStore.objects.get(pk=self.point_type.id).delete()
+        # # 1 -> 1, 2 -> 2
+        # # 1 -> 2
+        # # 2 -> 1
+        # # 3,4 -> 1
+        # # 3,4 -> 2
+        # # 3,4 -> 3,4
+        super(TradePoint, self).update(*args, **kwargs)
 
 
 class Employee(models.Model):
@@ -35,7 +98,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
     description = models.CharField(max_length=255, null=True, blank=True)
     sold_product = models.ManyToManyField(TradePoint, through='SoldProduct',
-                                          through_fields=('trade_point', 'product_id'))
+                                          through_fields=('product_id', 'trade_point'), related_name='sold_products')
 
 
 class Receipt(models.Model):
@@ -43,7 +106,8 @@ class Receipt(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
     date = models.DateField()
-    receipt_item = models.ManyToManyField(Product, through='ReceiptItem', through_fields=('product_id', 'receipt'))
+    receipt_item = models.ManyToManyField(Product, through='ReceiptItem',
+                                          through_fields=('receipt', 'product_id'), related_name='receipt_items')
 
 
 class ReceiptItem(models.Model):
@@ -61,13 +125,19 @@ class ReceiptItem(models.Model):
 class SomeStore(models.Model):
     trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.trade_point.__str__()
+
 
 class DepartmentStore(models.Model):
     trade_point = models.ForeignKey(SomeStore, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.trade_point.__str__()
 
-class Store(models.Model):
-    trade_point = models.ForeignKey(SomeStore, on_delete=models.CASCADE)
+
+# class Store(models.Model):
+#    trade_point = models.ForeignKey(SomeStore, on_delete=models.CASCADE)
 
 
 class Section(models.Model):
@@ -89,7 +159,7 @@ class Hall(models.Model):
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['hall_number', 'trade_point'], name='unique_section_number_trade_point')
+            UniqueConstraint(fields=['hall_number', 'trade_point'], name='unique_hall_number_trade_point')
         ]
 
 
@@ -108,7 +178,8 @@ class SoldProduct(models.Model):
 class Request(models.Model):
     trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE)
     date = models.DateField()
-    request_item = models.ManyToManyField(Product, through='ReceiptItem', through_fields=('product_id', 'request'))
+    request_item = models.ManyToManyField(Product, through='RequestItem',
+                                          through_fields=('request', 'product_id'), related_name="request_items")
 
 
 class RequestItem(models.Model):
@@ -125,12 +196,14 @@ class RequestItem(models.Model):
 class Distributor(models.Model):
     contact = models.CharField(max_length=255, validators=[validate_empty_string])
     rating = models.IntegerField(validators=[validate_gte_0])
-    distributor_product = models.ManyToManyField(Product, through='DistributorProduct',
-                                                 through_fields=('product_id', 'distributor'))
+    distributor_product = models.ManyToManyField(Product,
+                                                 through='DistributorProduct',
+                                                 through_fields=('distributor_id', 'product_id'),
+                                                 related_name='distributor_products')
 
 
 class DistributorProduct(models.Model):
-    distributor = models.ForeignKey(Distributor, on_delete=models.CASCADE)
+    distributor_id = models.ForeignKey(Distributor, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     offer_is_active = models.BooleanField()
@@ -139,9 +212,11 @@ class DistributorProduct(models.Model):
 
 class ProductsOrder(models.Model):
     date = models.DateField()
-    product_order_item = models.ManyToManyField(DistributorProduct, through='DistributorProduct',
-                                                through_fields=('distributor_product_id', 'products_order'))
-    request_order = models.ManyToManyField(Request, through='RequestOrder', through_fields=('request', 'order_id'))
+    product_order_item = models.ManyToManyField(DistributorProduct, through='ProductOrderItem',
+                                                through_fields=('products_order', 'distributor_product_id'),
+                                                related_name='product_order_items')
+    request_order = models.ManyToManyField(Request, through='RequestOrder', through_fields=('order_id', 'request'),
+                                           related_name='request_orders')
 
 
 class ProductOrderItem(models.Model):
