@@ -5,7 +5,8 @@ from polls.validators import *
 
 
 # Create your models here.
-
+# TODO: rename product_id_id in receiptitem, change DateField to DateTimeField, ManyToMany TradePointEmployee
+# TODO: нужно пофиксить выбор работников в SectorManager, сделать поле количества работников неактивным,
 
 class TradePointType(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
@@ -66,32 +67,24 @@ class TradePoint(models.Model):
     def __str__(self):
         return self.name + " | " + self.point_type.__str__()
 
-    def update(self, *args, **kwargs):
-        print('update trade point')
-        # old = TradePoint.objects.get(pk=self.id)
-        # # 1,2 -> 3,4
-        # if (old.point_type == TradePointType.objects.get(pk=1) or old.point_type == TradePointType.objects.get(pk=2)) \
-        #         and self.point_type != TradePointType.objects.get(pk=1) \
-        #         and self.point_type != TradePointType.objects.get(pk=2):
-        #     SomeStore.objects.get(pk=self.point_type.id).delete()
-        # # 1 -> 1, 2 -> 2
-        # # 1 -> 2
-        # # 2 -> 1
-        # # 3,4 -> 1
-        # # 3,4 -> 2
-        # # 3,4 -> 3,4
-        super(TradePoint, self).update(*args, **kwargs)
-
 
 class Employee(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
     working_point = models.ForeignKey(TradePoint, on_delete=models.PROTECT)
     salary = models.IntegerField(validators=[validate_gt_0])
 
+    def __str__(self):
+        return self.name + " | " + str(self.salary) + " | " + self.working_point.name
+
 
 class Customer(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
     info = models.CharField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        if self.info is not None:
+            return self.name + " | " + self.info
+        return self.name
 
 
 class Product(models.Model):
@@ -99,6 +92,11 @@ class Product(models.Model):
     description = models.CharField(max_length=255, null=True, blank=True)
     sold_product = models.ManyToManyField(TradePoint, through='SoldProduct',
                                           through_fields=('product_id', 'trade_point'), related_name='sold_products')
+
+    def __str__(self):
+        if self.description is not None:
+            return self.name + " | " + self.description
+        return self.name
 
 
 class Receipt(models.Model):
@@ -109,17 +107,31 @@ class Receipt(models.Model):
     receipt_item = models.ManyToManyField(Product, through='ReceiptItem',
                                           through_fields=('receipt', 'product_id'), related_name='receipt_items')
 
+    def __str__(self):
+        receipt_items = ReceiptItem.objects.filter(receipt=self)
+        total = 0
+        for item in receipt_items:
+            total += item.price * item.amount
+
+        if self.customer is not None:
+            return self.date.__str__() + " | total: " + str(total) + " | " + self.trade_point.name + " | customer: " \
+                   + self.customer.name + " | employee: " + self.employee.name
+        return self.date.__str__() + " | total: " + str(total) + " | " + self.trade_point.name + " | employee: " + self.employee.name
+
 
 class ReceiptItem(models.Model):
     receipt = models.ForeignKey(Receipt, on_delete=models.CASCADE, primary_key=True)
-    product_id = models.ForeignKey(Product, on_delete=models.RESTRICT)
+    product = models.ForeignKey(Product, on_delete=models.RESTRICT)
     amount = models.IntegerField(validators=[validate_gt_0])
     price = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['receipt', 'product_id'], name='unique_receiptid_productid')
+            UniqueConstraint(fields=['receipt', 'product'], name='unique_receiptid_productid')
         ]
+
+    def __str__(self):
+        return str(self.receipt.date) + " | " + self.product.name + " | amount: " + str(self.amount) + " | price: " + str(self.price)
 
 
 class SomeStore(models.Model):
@@ -151,6 +163,10 @@ class Section(models.Model):
             UniqueConstraint(fields=['section_number', 'trade_point'], name='unique_section_number_trade_point')
         ]
 
+    def __str__(self):
+        return "section number: " + str(self.section_number) + " | " + self.trade_point.trade_point.trade_point.name + \
+               " | manager: " + self.section_manager.name + " | floor: " + str(self.floor)
+
 
 class Hall(models.Model):
     trade_point = models.ForeignKey(SomeStore, on_delete=models.CASCADE)
@@ -162,17 +178,25 @@ class Hall(models.Model):
             UniqueConstraint(fields=['hall_number', 'trade_point'], name='unique_hall_number_trade_point')
         ]
 
+    def __str__(self):
+        return "hall number: " + str(self.hall_number) + " | " + self.trade_point.trade_point.name + \
+               " | employee number: " + str(self.employees_number)
+
 
 class SoldProduct(models.Model):
     trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE, primary_key=True)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     in_stock = models.IntegerField(validators=[validate_gte_0])
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['trade_point', 'product_id'], name='unique_trade_point_id_product_id')
+            UniqueConstraint(fields=['trade_point', 'product'], name='unique_trade_point_id_product_id')
         ]
+
+    def __str__(self):
+        return self.trade_point.name + " | " + self.product.name + " | in stock: " + str(self.in_stock) \
+               + " | price: " + str(self.price)
 
 
 class Request(models.Model):
@@ -181,19 +205,26 @@ class Request(models.Model):
     request_item = models.ManyToManyField(Product, through='RequestItem',
                                           through_fields=('request', 'product_id'), related_name="request_items")
 
+    def __str__(self):
+        return self.trade_point.name + " | " + str(self.date)
+
 
 class RequestItem(models.Model):
     request = models.ForeignKey(Request, on_delete=models.CASCADE, primary_key=True)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     amount = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['request', 'product_id'], name='unique_request_id_product_id')
+            UniqueConstraint(fields=['request', 'product'], name='unique_request_id_product_id')
         ]
+
+    def __str__(self):
+        return self.request.__str__() + " | " + self.product.name + " | amount: " + str(self.amount)
 
 
 class Distributor(models.Model):
+    name = models.CharField(max_length=255, validators=[validate_empty_string])
     contact = models.CharField(max_length=255, validators=[validate_empty_string])
     rating = models.IntegerField(validators=[validate_gte_0])
     distributor_product = models.ManyToManyField(Product,
@@ -201,13 +232,20 @@ class Distributor(models.Model):
                                                  through_fields=('distributor_id', 'product_id'),
                                                  related_name='distributor_products')
 
+    def __str__(self):
+        return self.name + " | " + self.contact + " | rating: " + str(self.rating)
+
 
 class DistributorProduct(models.Model):
-    distributor_id = models.ForeignKey(Distributor, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    distributor = models.ForeignKey(Distributor, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     offer_is_active = models.BooleanField()
     offer_start_date = models.DateField()
+
+    def __str__(self):
+        return self.distributor.name + " | " + self.product.name + " | price: " + str(self.price) +\
+               " | " + str(self.offer_start_date) + " | is active: " + str(self.offer_is_active)
 
 
 class ProductsOrder(models.Model):
@@ -217,6 +255,9 @@ class ProductsOrder(models.Model):
                                                 related_name='product_order_items')
     request_order = models.ManyToManyField(Request, through='RequestOrder', through_fields=('order_id', 'request'),
                                            related_name='request_orders')
+
+    def __str__(self):
+        return str(self.date)
 
 
 class ProductOrderItem(models.Model):
@@ -231,6 +272,11 @@ class ProductOrderItem(models.Model):
                              name='unique_products_order_id_distributor_product_id')
         ]
 
+    def __str__(self):
+        return "order date: " + str(self.products_order) + " | distributor: " + \
+               self.distributor_product_id.distributor.name + " | " + self.distributor_product_id.product.name + \
+               " | price: " + str(self.price) + " | amount: " + str(self.amount)
+
 
 class RequestOrder(models.Model):
     request = models.ForeignKey(Request, on_delete=models.CASCADE, primary_key=True)
@@ -241,3 +287,7 @@ class RequestOrder(models.Model):
             UniqueConstraint(fields=['request', 'order_id'],
                              name='unique_request_id_distributor_order_id')
         ]
+
+    def __str__(self):
+        return self.request.trade_point.name + " | request date: " + str(self.request.date) + " | order date: " + \
+               str(self.order_id.date)
