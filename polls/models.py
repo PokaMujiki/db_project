@@ -91,7 +91,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, validators=[validate_empty_string])
     description = models.CharField(max_length=255, null=True, blank=True)
     sold_product = models.ManyToManyField(TradePoint, through='SoldProduct',
-                                          through_fields=('product_id', 'trade_point'), related_name='sold_products')
+                                          through_fields=('product', 'trade_point'), related_name='sold_products')
 
     def __str__(self):
         if self.description is not None:
@@ -203,7 +203,7 @@ class Request(models.Model):
     trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE)
     date = models.DateField()
     request_item = models.ManyToManyField(Product, through='RequestItem',
-                                          through_fields=('request', 'product_id'), related_name="request_items")
+                                          through_fields=('request', 'product'), related_name="request_items")
 
     def __str__(self):
         return self.trade_point.name + " | " + str(self.date)
@@ -229,7 +229,7 @@ class Distributor(models.Model):
     rating = models.IntegerField(validators=[validate_gte_0])
     distributor_product = models.ManyToManyField(Product,
                                                  through='DistributorProduct',
-                                                 through_fields=('distributor_id', 'product_id'),
+                                                 through_fields=('distributor', 'product'),
                                                  related_name='distributor_products')
 
     def __str__(self):
@@ -251,7 +251,7 @@ class DistributorProduct(models.Model):
 class ProductsOrder(models.Model):
     date = models.DateField()
     product_order_item = models.ManyToManyField(DistributorProduct, through='ProductOrderItem',
-                                                through_fields=('products_order', 'distributor_product_id'),
+                                                through_fields=('products_order', 'distributor_product'),
                                                 related_name='product_order_items')
     request_order = models.ManyToManyField(Request, through='RequestOrder', through_fields=('order_id', 'request'),
                                            related_name='request_orders')
@@ -262,32 +262,32 @@ class ProductsOrder(models.Model):
 
 class ProductOrderItem(models.Model):
     products_order = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE, primary_key=True)
-    distributor_product_id = models.ForeignKey(DistributorProduct, on_delete=models.CASCADE)
+    distributor_product = models.ForeignKey(DistributorProduct, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     amount = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['products_order', 'distributor_product_id'],
+            UniqueConstraint(fields=['products_order', 'distributor_product'],
                              name='unique_products_order_id_distributor_product_id')
         ]
 
     def __str__(self):
         return "order date: " + str(self.products_order) + " | distributor: " + \
-               self.distributor_product_id.distributor.name + " | " + self.distributor_product_id.product.name + \
+               self.distributor_product.distributor.name + " | " + self.distributor_product.product.name + \
                " | price: " + str(self.price) + " | amount: " + str(self.amount)
 
 
 class RequestOrder(models.Model):
     request = models.ForeignKey(Request, on_delete=models.CASCADE, primary_key=True)
-    order_id = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE)
+    order = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['request', 'order_id'],
+            UniqueConstraint(fields=['request', 'order'],
                              name='unique_request_id_distributor_order_id')
         ]
 
     def __str__(self):
         return self.request.trade_point.name + " | request date: " + str(self.request.date) + " | order date: " + \
-               str(self.order_id.date)
+               str(self.order.date)
