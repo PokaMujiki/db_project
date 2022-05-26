@@ -120,15 +120,13 @@ class Receipt(models.Model):
 
 
 class ReceiptItem(models.Model):
-    receipt = models.ForeignKey(Receipt, on_delete=models.CASCADE, primary_key=True)
+    receipt = models.ForeignKey(Receipt, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.RESTRICT)
     amount = models.IntegerField(validators=[validate_gt_0])
     price = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['receipt', 'product'], name='unique_receiptid_productid')
-        ]
+        unique_together = (('receipt', 'product'),)
 
     def __str__(self):
         return str(self.receipt.date) + " | " + self.product.name + " | amount: " + str(self.amount) + " | price: " + str(self.price)
