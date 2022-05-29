@@ -586,3 +586,451 @@ insert into polls_receiptitem (receipt_id, product_id, amount, price) values (11
 insert into polls_receiptitem (receipt_id, product_id, amount, price) values (118, 39, 3, 30);
 insert into polls_receiptitem (receipt_id, product_id, amount, price) values (73, 9, 5, 21);
 insert into polls_receiptitem (receipt_id, product_id, amount, price) values (4, 57, 1, 29);
+
+insert into polls_section (trade_point_id, section_manager_id, section_number, floor) values (1, 6, 1, 4);
+insert into polls_section (trade_point_id, section_manager_id, section_number, floor) values (1, 6, 2, 2);
+insert into polls_section (trade_point_id, section_manager_id, section_number, floor) values (2, 19, 2, 5);
+insert into polls_section (trade_point_id, section_manager_id, section_number, floor) values (2, 19, 1, 2);
+
+insert into polls_hall(hall_number, trade_point_id, employees_number) values (1, 4, 3);
+insert into polls_hall(hall_number, trade_point_id, employees_number) values (1, 1, 2);
+insert into polls_hall(hall_number, trade_point_id, employees_number) values (1, 3, 3);
+insert into polls_hall(hall_number, trade_point_id, employees_number) values (2, 4, 1);
+
+insert into polls_distributor (name, contact, rating) values ('Avamba', '189-844-9893', 33);
+insert into polls_distributor (name, contact, rating) values ('Photospace', '450-244-2101', 81);
+insert into polls_distributor (name, contact, rating) values ('Bubblebox', '793-236-4914', 57);
+insert into polls_distributor (name, contact, rating) values ('Npath', '691-142-1140', 91);
+insert into polls_distributor (name, contact, rating) values ('Jabbersphere', '535-945-9558', 7);
+insert into polls_distributor (name, contact, rating) values ('Latz', '732-103-4715', 83);
+insert into polls_distributor (name, contact, rating) values ('Trudeo', '964-133-1146', 78);
+insert into polls_distributor (name, contact, rating) values ('Zoozzy', '406-993-2042', 7);
+insert into polls_distributor (name, contact, rating) values ('Edgetag', '838-890-6578', 98);
+insert into polls_distributor (name, contact, rating) values ('Photolist', '112-953-4519', 34);
+insert into polls_distributor (name, contact, rating) values ('Photojam', '163-835-6380', 69);
+insert into polls_distributor (name, contact, rating) values ('Myworks', '608-249-1852', 48);
+insert into polls_distributor (name, contact, rating) values ('Leenti', '492-776-8862', 94);
+insert into polls_distributor (name, contact, rating) values ('Meevee', '942-971-4289', 72);
+insert into polls_distributor (name, contact, rating) values ('Riffpedia', '316-664-1049', 3);
+insert into polls_distributor (name, contact, rating) values ('Meembee', '665-663-0159', 42);
+insert into polls_distributor (name, contact, rating) values ('Trilia', '952-307-0194', 73);
+insert into polls_distributor (name, contact, rating) values ('Ozu', '374-107-6805', 59);
+insert into polls_distributor (name, contact, rating) values ('Shuffledrive', '765-460-8866', 49);
+insert into polls_distributor (name, contact, rating) values ('Fliptune', '351-286-6504', 3);
+
+insert into polls_request (trade_point_id, date) values (2, '2021-09-19');
+insert into polls_request (trade_point_id, date) values (7, '2021-11-22');
+insert into polls_request (trade_point_id, date) values (10, '2021-03-03');
+insert into polls_request (trade_point_id, date) values (7, '2021-05-24');
+insert into polls_request (trade_point_id, date) values (3, '2021-09-22');
+insert into polls_request (trade_point_id, date) values (5, '2021-03-05');
+insert into polls_request (trade_point_id, date) values (11, '2021-08-09');
+insert into polls_request (trade_point_id, date) values (7, '2021-10-18');
+insert into polls_request (trade_point_id, date) values (2, '2021-03-02');
+insert into polls_request (trade_point_id, date) values ( 3, '2021-09-29');
+insert into polls_request (trade_point_id, date) values ( 4, '2021-02-26');
+insert into polls_request (trade_point_id, date) values ( 11, '2021-08-17');
+insert into polls_request (trade_point_id, date) values ( 9, '2021-05-20');
+insert into polls_request (trade_point_id, date) values ( 4, '2021-08-10');
+insert into polls_request (trade_point_id, date) values ( 3, '2021-08-11');
+insert into polls_request (trade_point_id, date) values ( 1, '2021-10-28');
+insert into polls_request (trade_point_id, date) values ( 9, '2021-01-29');
+insert into polls_request (trade_point_id, date) values ( 5, '2021-12-15');
+insert into polls_request (trade_point_id, date) values ( 5, '2021-09-10');
+insert into polls_request (trade_point_id, date) values ( 9, '2021-10-28');
+insert into polls_request (trade_point_id, date) values ( 5, '2021-12-22');
+insert into polls_request (trade_point_id, date) values ( 8, '2021-03-27');
+insert into polls_request (trade_point_id, date) values ( 11, '2021-03-31');
+insert into polls_request (trade_point_id, date) values ( 7, '2021-08-21');
+insert into polls_request (trade_point_id, date) values ( 7, '2021-11-05');
+insert into polls_request (trade_point_id, date) values ( 7, '2021-09-08');
+insert into polls_request (trade_point_id, date) values ( 2, '2021-10-08');
+insert into polls_request (trade_point_id, date) values ( 4, '2021-06-27');
+insert into polls_request (trade_point_id, date) values ( 8, '2021-01-29');
+insert into polls_request (trade_point_id, date) values ( 2, '2021-11-04');
+insert into polls_request (trade_point_id, date) values ( 9, '2021-12-28');
+insert into polls_request (trade_point_id, date) values ( 2, '2021-07-20');
+insert into polls_request (trade_point_id, date) values ( 10, '2021-09-23');
+insert into polls_request (trade_point_id, date) values ( 6, '2021-01-05');
+insert into polls_request (trade_point_id, date) values ( 5, '2021-12-13');
+insert into polls_request (trade_point_id, date) values ( 8, '2021-01-30');
+insert into polls_request (trade_point_id, date) values ( 10, '2021-02-08');
+insert into polls_request (trade_point_id, date) values ( 5, '2021-09-19');
+insert into polls_request (trade_point_id, date) values ( 3, '2021-07-17');
+insert into polls_request (trade_point_id, date) values ( 10, '2021-03-24');
+
+insert into polls_productsorder (date) values ('2021-10-21');
+insert into polls_productsorder (date) values ('2021-09-20');
+insert into polls_productsorder (date) values ('2021-09-23');
+insert into polls_productsorder (date) values ('2021-05-18');
+insert into polls_productsorder (date) values ('2021-03-07');
+insert into polls_productsorder (date) values ('2021-03-09');
+insert into polls_productsorder (date) values ('2021-03-12');
+insert into polls_productsorder (date) values ('2021-02-22');
+insert into polls_productsorder (date) values ('2021-08-23');
+insert into polls_productsorder (date) values ('2021-12-12');
+
+insert into polls_requestorder (order_id, request_id) values (2, 1);
+insert into polls_requestorder (order_id, request_id) values (8, 2);
+insert into polls_requestorder (order_id, request_id) values (8, 3);
+insert into polls_requestorder (order_id, request_id) values (3, 4);
+insert into polls_requestorder (order_id, request_id) values (3, 5);
+insert into polls_requestorder (order_id, request_id) values (5, 6);
+insert into polls_requestorder (order_id, request_id) values (5, 7);
+insert into polls_requestorder (order_id, request_id) values (5, 8);
+insert into polls_requestorder (order_id, request_id) values (2, 9);
+insert into polls_requestorder (order_id, request_id) values (8, 10);
+insert into polls_requestorder (order_id, request_id) values (2, 11);
+insert into polls_requestorder (order_id, request_id) values (6, 12);
+insert into polls_requestorder (order_id, request_id) values (6, 13);
+insert into polls_requestorder (order_id, request_id) values (9, 14);
+insert into polls_requestorder (order_id, request_id) values (7, 15);
+insert into polls_requestorder (order_id, request_id) values (2, 16);
+insert into polls_requestorder (order_id, request_id) values (6, 17);
+insert into polls_requestorder (order_id, request_id) values (3, 18);
+insert into polls_requestorder (order_id, request_id) values (6, 19);
+insert into polls_requestorder (order_id, request_id) values (9, 20);
+insert into polls_requestorder (order_id, request_id) values (3, 21);
+insert into polls_requestorder (order_id, request_id) values (5, 22);
+insert into polls_requestorder (order_id, request_id) values (3, 23);
+insert into polls_requestorder (order_id, request_id) values (5, 24);
+insert into polls_requestorder (order_id, request_id) values (3, 25);
+insert into polls_requestorder (order_id, request_id) values (5, 26);
+insert into polls_requestorder (order_id, request_id) values (10, 27);
+insert into polls_requestorder (order_id, request_id) values (8, 28);
+insert into polls_requestorder (order_id, request_id) values (7, 29);
+insert into polls_requestorder (order_id, request_id) values (8, 30);
+insert into polls_requestorder (order_id, request_id) values (4, 31);
+insert into polls_requestorder (order_id, request_id) values (5, 32);
+insert into polls_requestorder (order_id, request_id) values (8, 33);
+insert into polls_requestorder (order_id, request_id) values (4, 34);
+insert into polls_requestorder (order_id, request_id) values (8, 35);
+insert into polls_requestorder (order_id, request_id) values (9, 36);
+insert into polls_requestorder (order_id, request_id) values (1, 37);
+insert into polls_requestorder (order_id, request_id) values (9, 38);
+insert into polls_requestorder (order_id, request_id) values (10, 39);
+insert into polls_requestorder (order_id, request_id) values (10, 40);
+
+insert into polls_requestitem(product_id, request_id, amount) values
+    (52,18,331),
+    (13,5,583),
+    (90,11,612),
+    (64,4,646),
+    (6,36,976),
+    (88,28,876),
+    (47,36,118),
+    (45,1,146),
+    (40,27,798),
+    (80,1,552),
+    (82,5,332),
+    (71,3,293),
+    (41,30,92),
+    (23,24,534),
+    (53,24,996),
+    (87,13,325),
+    (75,13,841),
+    (88,3,259),
+    (50,7,113),
+    (71,10,568),
+    (17,8,284),
+    (16,22,894),
+    (28,17,699),
+    (9,37,241),
+    (69,5,195),
+    (80,34,438),
+    (11,8,315),
+    (32,25,965),
+    (4,39,725),
+    (86,11,271),
+    (42,7,479),
+    (90,16,871),
+    (4,5,264),
+    (10,33,637),
+    (77,40,123),
+    (22,22,738),
+    (41,5,633),
+    (59,20,540),
+    (6,34,497),
+    (86,16,347),
+    (30,14,619),
+    (8,34,781),
+    (35,31,846),
+    (20,6,638),
+    (1,29,787),
+    (29,23,277),
+    (73,5,36),
+    (46,21,288),
+    (71,30,704),
+    (67,17,305),
+    (7,8,263),
+    (63,6,993),
+    (17,7,521),
+    (70,11,537),
+    (65,10,511),
+    (62,20,591),
+    (24,3,258),
+    (3,35,497),
+    (29,1,258),
+    (36,28,155),
+    (23,39,660),
+    (77,10,554),
+    (60,23,623),
+    (43,26,270),
+    (39,19,972),
+    (67,1,173),
+    (64,15,431),
+    (10,8,703),
+    (65,31,557),
+    (45,33,66),
+    (15,29,167),
+    (58,20,466),
+    (67,15,877),
+    (88,36,188),
+    (27,16,382),
+    (27,14,207),
+    (89,22,365),
+    (30,21,558),
+    (36,36,391),
+    (30,7,40),
+    (45,29,37),
+    (80,29,767),
+    (30,26,107),
+    (70,10,904),
+    (41,38,514),
+    (85,30,492),
+    (77,18,874),
+    (25,30,816),
+    (79,17,788),
+    (32,15,337),
+    (6,38,586),
+    (1,21,934),
+    (58,31,132),
+    (35,37,137),
+    (62,12,394),
+    (31,9,731),
+    (20,20,459),
+    (53,9,527),
+    (73,16,189),
+    (89,30,106),
+    (87,21,558),
+    (8,13,370),
+    (39,7,667),
+    (79,38,806),
+    (70,8,127),
+    (69,21,387),
+    (45,37,438),
+    (40,32,133),
+    (33,23,316),
+    (6,33,259),
+    (11,4,337),
+    (4,10,413),
+    (37,13,483),
+    (24,37,435),
+    (57,33,413),
+    (51,16,833),
+    (64,20,887),
+    (84,3,113),
+    (69,10,856),
+    (18,1,991),
+    (30,24,270),
+    (37,33,97),
+    (10,16,170),
+    (7,38,744),
+    (68,8,467),
+    (15,15,361),
+    (83,6,485),
+    (46,3,868),
+    (63,2,388),
+    (61,8,933),
+    (10,14,691),
+    (12,7,52),
+    (26,40,708),
+    (19,4,707),
+    (12,22,795),
+    (50,26,592),
+    (21,22,205),
+    (31,1,384),
+    (89,5,338),
+    (56,6,989),
+    (5,3,592),
+    (77,1,920),
+    (83,19,836),
+    (57,26,224),
+    (91,31,501),
+    (11,19,13),
+    (31,23,790),
+    (14,28,203),
+    (47,20,931),
+    (14,21,868),
+    (2,38,941),
+    (9,33,323),
+    (43,20,107),
+    (72,22,275),
+    (67,5,529),
+    (44,7,614),
+    (79,27,774),
+    (49,2,944),
+    (61,31,215),
+    (13,35,282),
+    (57,4,130),
+    (46,19,549),
+    (80,21,240),
+    (74,8,860),
+    (17,12,216),
+    (17,3,763),
+    (21,12,123),
+    (59,5,95),
+    (23,37,403),
+    (16,24,397),
+    (41,17,928),
+    (16,39,930),
+    (70,18,935),
+    (23,6,140),
+    (85,24,55),
+    (78,32,380),
+    (72,27,903),
+    (69,38,177),
+    (2,24,494),
+    (3,1,552),
+    (67,3,552),
+    (42,38,494),
+    (49,36,176),
+    (20,35,43),
+    (20,12,658),
+    (47,5,945),
+    (57,8,658),
+    (42,15,68),
+    (49,39,175),
+    (43,36,513),
+    (29,40,442),
+    (19,40,653),
+    (66,27,195),
+    (43,9,789),
+    (38,12,428),
+    (57,27,926),
+    (88,35,228),
+    (45,36,331),
+    (35,30,275),
+    (90,24,498);
+
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 7, 45, true, '2021-03-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (19, 4, 67, true, '2021-01-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 71, 70, false, '2021-12-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 14, 83, false, '2021-09-10');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 65, 72, true, '2021-09-15');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 49, 16, false, '2021-12-14');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (12, 58, 32, true, '2021-11-29');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 46, 85, true, '2021-11-28');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (7, 51, 55, false, '2021-10-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 14, 93, true, '2021-05-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 52, 22, true, '2021-08-28');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 42, 38, true, '2021-08-25');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 79, 40, false, '2021-09-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (9, 30, 14, false, '2021-03-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 49, 72, true, '2021-08-15');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 68, 89, false, '2021-03-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 28, 27, true, '2021-02-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (6, 36, 12, true, '2021-03-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 28, 24, true, '2021-12-10');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 6, 43, false, '2021-04-14');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (18, 76, 66, false, '2021-11-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 27, 73, false, '2021-04-13');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 26, 28, true, '2021-10-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 63, 49, false, '2021-08-27');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 43, 94, false, '2021-05-01');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 24, 66, false, '2021-04-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 29, 84, false, '2021-06-24');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 31, 15, false, '2021-10-17');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (2, 3, 81, true, '2021-10-22');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 1, 82, true, '2021-08-02');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 15, 73, true, '2021-11-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (2, 83, 64, false, '2021-01-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 41, 50, true, '2021-11-03');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 80, 39, false, '2021-02-22');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 43, 96, true, '2021-09-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 3, 71, true, '2021-12-21');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (18, 6, 42, true, '2021-01-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 43, 25, false, '2021-07-25');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 88, 25, true, '2021-01-13');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 45, 72, false, '2021-06-11');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 20, 81, false, '2021-10-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 10, 92, true, '2021-12-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (9, 50, 98, true, '2021-01-05');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 87, 30, false, '2021-05-16');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (7, 5, 19, false, '2021-12-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 81, 83, true, '2021-09-29');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 78, 90, false, '2021-03-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (15, 40, 23, false, '2021-02-07');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 88, 68, true, '2021-06-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 51, 92, false, '2021-05-04');
+
+insert into polls_soldproduct (product_id, trade_point_id, in_stock, price) values
+    (35,3,508,35),
+    (76,11,462,59),
+    (7,10,151,53),
+    (65,11,132,26),
+    (2,10,74,24),
+    (71,6,48,76),
+    (72,8,198,28),
+    (12,10,909,69),
+    (68,8,243,24),
+    (25,8,959,85),
+    (69,2,842,98),
+    (41,8,723,100),
+    (72,11,242,47),
+    (62,9,548,55),
+    (12,8,591,74),
+    (11,3,908,21),
+    (20,2,388,32),
+    (45,1,308,76),
+    (63,10,648,21),
+    (7,5,623,65),
+    (36,7,505,60),
+    (67,11,874,60),
+    (5,3,871,55),
+    (75,6,271,83),
+    (70,1,437,13),
+    (64,6,245,39),
+    (18,7,874,98),
+    (41,6,200,35),
+    (79,1,477,19),
+    (88,4,0,53),
+    (16,5,210,99),
+    (56,2,479,26),
+    (67,7,627,28),
+    (43,9,349,27),
+    (9,1,675,72),
+    (10,11,64,36),
+    (91,2,817,23),
+    (39,1,952,26),
+    (37,3,539,60),
+    (25,2,99,11),
+    (74,9,868,81),
+    (19,11,11,99),
+    (8,11,388,84),
+    (89,7,178,37),
+    (57,9,119,43),
+    (21,1,503,62),
+    (19,2,382,49),
+    (55,11,37,57),
+    (62,1,192,38),
+    (40,5,187,41);
+
+insert into polls_productorderitem (products_order_id, distributor_product_id, price, amount) values
+	(1, 1, 10, 1000),
+	(1, 2, 20, 1000),
+	(1, 5, 30, 1000),
+	(1, 7, 40, 1000),
+	(2,15, 15, 1000),
+	(2,17, 45, 1000),
+	(2,18, 76, 1000),
+	(2,19, 22, 1000),
+	(3,35, 31, 1000),
+	(3,36, 56, 1000),
+	(4,37, 42, 1000),
+	(5,42, 11, 1000),
+	(6,43, 7, 1000),
+	(7,46, 10, 1000),
+	(8,49, 82, 1000),
+	(9,39, 64, 1000);
+

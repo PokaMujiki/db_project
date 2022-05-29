@@ -146,10 +146,6 @@ class DepartmentStore(models.Model):
         return self.trade_point.__str__()
 
 
-# class Store(models.Model):
-#    trade_point = models.ForeignKey(SomeStore, on_delete=models.CASCADE)
-
-
 class Section(models.Model):
     trade_point = models.ForeignKey(DepartmentStore, on_delete=models.CASCADE)
     section_number = models.IntegerField(validators=[validate_gt_0])
@@ -157,9 +153,7 @@ class Section(models.Model):
     floor = models.IntegerField(validators=[validate_gte_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['section_number', 'trade_point'], name='unique_section_number_trade_point')
-        ]
+        unique_together = (('section_number', 'trade_point'),)
 
     def __str__(self):
         return "section number: " + str(self.section_number) + " | " + self.trade_point.trade_point.trade_point.name + \
@@ -172,9 +166,7 @@ class Hall(models.Model):
     employees_number = models.IntegerField(null=True, blank=True, validators=[validate_gte_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['hall_number', 'trade_point'], name='unique_hall_number_trade_point')
-        ]
+        unique_together = (('hall_number', 'trade_point'),)
 
     def __str__(self):
         return "hall number: " + str(self.hall_number) + " | " + self.trade_point.trade_point.name + \
@@ -182,15 +174,13 @@ class Hall(models.Model):
 
 
 class SoldProduct(models.Model):
-    trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE, primary_key=True)
+    trade_point = models.ForeignKey(TradePoint, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     in_stock = models.IntegerField(validators=[validate_gte_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['trade_point', 'product'], name='unique_trade_point_id_product_id')
-        ]
+        unique_together = (('trade_point', 'product'),)
 
     def __str__(self):
         return self.trade_point.name + " | " + self.product.name + " | in stock: " + str(self.in_stock) \
@@ -208,14 +198,12 @@ class Request(models.Model):
 
 
 class RequestItem(models.Model):
-    request = models.ForeignKey(Request, on_delete=models.CASCADE, primary_key=True)
+    request = models.ForeignKey(Request, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     amount = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['request', 'product'], name='unique_request_id_product_id')
-        ]
+        unique_together = (('request', 'product'),)
 
     def __str__(self):
         return self.request.__str__() + " | " + self.product.name + " | amount: " + str(self.amount)
@@ -259,16 +247,13 @@ class ProductsOrder(models.Model):
 
 
 class ProductOrderItem(models.Model):
-    products_order = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE, primary_key=True)
+    products_order = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE)
     distributor_product = models.ForeignKey(DistributorProduct, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
     amount = models.IntegerField(validators=[validate_gt_0])
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['products_order', 'distributor_product'],
-                             name='unique_products_order_id_distributor_product_id')
-        ]
+        unique_together = (('products_order', 'distributor_product'),)
 
     def __str__(self):
         return "order date: " + str(self.products_order) + " | distributor: " + \
@@ -277,14 +262,11 @@ class ProductOrderItem(models.Model):
 
 
 class RequestOrder(models.Model):
-    request = models.ForeignKey(Request, on_delete=models.CASCADE, primary_key=True)
+    request = models.ForeignKey(Request, on_delete=models.CASCADE)
     order = models.ForeignKey(ProductsOrder, on_delete=models.CASCADE)
 
     class Meta:
-        constraints = [
-            UniqueConstraint(fields=['request', 'order'],
-                             name='unique_request_id_distributor_order_id')
-        ]
+        unique_together = (('request', 'order'),)
 
     def __str__(self):
         return self.request.trade_point.name + " | request date: " + str(self.request.date) + " | order date: " + \
