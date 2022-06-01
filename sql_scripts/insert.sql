@@ -187,157 +187,157 @@ insert into polls_employee(name, working_point_id, salary) values
     ('Latashia Lawie',2,3007),
     ('Garner Boulton',8,3155);
 
-insert into polls_receipt(trade_point_id,customer_id,date,employee_id) values
-    (5,9,'2021-04-10',5),
-    (6,10,'2021-11-28',9),
-    (5,40,'2021-08-17',4),
-    (7,5,'2021-12-15',20),
-    (10,13,'2021-02-23',11),
-    (6,39,'2021-04-14',10),
-    (9,39,'2021-11-13',14),
-    (4,33,'2021-03-08',11),
-    (2,9,'2021-11-07',2),
-    (9,12,'2021-04-10',5),
-    (7,42,'2021-01-22',15),
-    (1,17,'2021-10-24',8),
-    (7,19,'2021-03-17',3),
-    (11,30,'2021-03-07',18),
-    (5,5,'2021-02-27',17),
-    (7,36,'2021-10-22',15),
-    (3,4,'2021-08-20',14),
-    (11,6,'2021-04-08',11),
-    (1,40,'2021-01-20',8),
-    (3,33,'2021-12-18',19),
-    (11,19,'2021-02-17',4),
-    (11,30,'2021-01-10',14),
-    (1,39,'2021-02-23',20),
-    (2,8,'2021-08-07',19),
-    (6,34,'2021-11-20',5),
-    (8,20,'2021-07-20',9),
-    (5,31,'2021-01-19',12),
-    (3,29,'2021-09-10',16),
-    (1,27,'2021-07-09',11),
-    (3,15,'2021-04-01',18),
-    (2,20,'2021-07-24',2),
-    (3,39,'2021-10-26',19),
-    (4,3,'2021-02-02',1),
-    (3,10,'2021-06-01',19),
-    (8,11,'2021-04-09',8),
-    (6,18,'2021-07-06',11),
-    (10,15,'2021-08-28',18),
-    (6,36,'2021-03-12',3),
-    (7,17,'2021-04-26',4),
-    (9,24,'2021-04-18',9),
-    (8,17,'2021-07-23',5),
-    (8,28,'2021-10-26',18),
-    (6,37,'2021-03-13',16),
-    (11,9,'2021-01-06',4),
-    (10,1,'2021-06-22',15),
-    (6,35,'2021-07-02',1),
-    (9,3,'2021-06-16',17),
-    (1,2,'2021-09-28',10),
-    (8,28,'2021-04-26',6),
-    (4,23,'2021-04-21',8),
-    (9,13,'2021-02-12',11),
-    (6,30,'2021-11-23',8),
-    (1,5,'2021-03-25',16),
-    (9,18,'2021-05-03',8),
-    (4,9,'2021-05-03',14),
-    (5,5,'2021-08-28',11),
-    (8,12,'2021-12-27',12),
-    (5,24,'2021-07-04',10),
-    (1,1,'2021-02-20',20),
-    (8,27,'2021-12-20',1),
-    (9,4,'2021-01-10',7),
-    (6,37,'2021-11-16',9),
-    (11,22,'2021-11-06',8),
-    (6,4,'2021-10-30',4),
-    (4,31,'2021-09-17',12),
-    (9,40,'2021-12-17',3),
-    (4,25,'2021-07-25',3),
-    (2,17,'2021-05-23',15),
-    (9,8,'2021-08-23',11),
-    (6,21,'2021-03-22',20),
-    (6,27,'2021-11-12',3),
-    (5,37,'2021-09-18',16),
-    (7,28,'2021-07-11',2),
-    (2,13,'2021-12-23',1),
-    (5,36,'2021-12-31',19),
-    (7,15,'2021-10-22',10),
-    (5,32,'2021-10-13',12),
-    (5,2,'2021-12-11',15),
-    (7,12,'2021-07-20',8),
-    (2,18,'2021-08-19',4),
-    (4,12,'2021-05-02',17),
-    (1,29,'2021-04-16',14),
-    (6,13,'2021-08-24',13),
-    (4,35,'2021-06-06',15),
-    (7,39,'2021-09-16',7),
-    (6,16,'2021-05-04',18),
-    (9,26,'2021-03-01',11),
-    (9,28,'2021-03-09',1),
-    (5,41,'2021-11-07',9),
-    (2,30,'2021-10-19',8),
-    (10,33,'2021-07-13',2),
-    (8,5,'2021-04-30',5),
-    (9,6,'2021-12-20',2),
-    (8,13,'2021-07-02',19),
-    (1,16,'2021-12-14',10),
-    (3,5,'2021-07-01',16),
-    (6,2,'2021-02-17',9),
-    (6,22,'2021-10-21',11),
-    (2,40,'2021-02-03',13),
-    (6,41,'2021-02-15',13),
-    (7,36,'2021-01-04',19),
-    (3,10,'2021-12-23',5),
-    (5,8,'2021-03-09',10),
-    (8,3,'2021-06-20',9),
-    (8,28,'2021-04-08',6),
-    (10,39,'2021-11-10',4),
-    (4,31,'2021-11-04',10),
-    (9,11,'2021-05-14',12),
-    (1,23,'2021-07-01',7),
-    (2,15,'2021-09-20',16),
-    (4,39,'2021-05-08',1),
-    (11,13,'2021-09-08',2),
-    (4,33,'2021-06-26',14),
-    (4,24,'2021-01-06',8),
-    (2,26,'2021-01-15',2),
-    (2,17,'2021-07-19',7),
-    (2,1,'2021-08-02',18),
-    (11,18,'2021-05-29',3),
-    (8,39,'2021-12-07',19),
-    (1,34,'2021-02-02',11),
-    (6,4,'2021-02-25',16),
-    (7,20,'2021-12-10',5),
-    (11,34,'2021-11-04',4),
-    (4,14,'2021-07-10',19),
-    (3,10,'2021-08-31',20),
-    (10,38,'2021-01-16',8),
-    (8,31,'2021-05-14',8),
-    (3,31,'2021-06-18',1),
-    (9,15,'2021-08-23',11),
-    (7,28,'2021-05-18',9),
-    (4,26,'2021-12-17',18),
-    (4,12,'2021-09-14',12),
-    (10,14,'2021-06-27',16),
-    (1,34,'2021-11-07',13),
-    (5,41,'2021-12-30',4),
-    (7,26,'2021-10-22',16),
-    (6,28,'2021-10-14',14),
-    (10,5,'2021-06-20',3),
-    (2,30,'2021-02-21',8),
-    (5,11,'2021-09-24',2),
-    (4,10,'2021-11-29',17),
-    (10,4,'2021-06-12',19),
-    (3,33,'2021-01-17',5),
-    (10,26,'2021-05-21',5),
-    (11,39,'2021-09-14',18),
-    (11,41,'2021-02-18',8),
-    (1,5,'2021-08-20',14),
-    (1,35,'2021-12-20',20),
-    (9,38,'2021-07-22',7),
-    (7,23,'2021-12-08',7);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 2, '2021-03-29 15:29:25', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 34, '2021-08-16 22:48:10', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 30, '2021-06-14 17:09:28', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 37, '2021-04-09 13:04:27', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 33, '2021-10-23 22:37:37', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 25, '2021-03-03 17:08:05', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 24, '2021-12-02 00:30:47', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 23, '2021-01-12 14:25:01', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 31, '2021-07-30 20:00:57', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 2, '2021-01-13 16:34:28', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 12, '2021-03-03 10:55:20', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 42, '2021-06-22 10:28:42', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 24, '2021-03-18 09:47:53', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 13, '2021-06-12 05:56:32', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 25, '2021-03-22 19:33:44', 9);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 3, '2021-07-15 22:14:16', 9);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 40, '2021-08-09 02:44:04', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 19, '2021-10-02 07:06:25', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 28, '2021-03-16 05:22:14', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 40, '2021-08-31 18:45:58', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 3, '2021-06-24 14:30:14', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 1, '2021-07-01 18:57:25', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 30, '2021-12-25 02:39:57', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 20, '2021-05-20 06:32:01', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 7, '2021-04-18 20:58:13', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 14, '2021-05-18 08:18:42', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 20, '2021-06-14 09:07:26', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 19, '2021-02-09 04:49:57', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 14, '2021-11-04 09:41:29', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 2, '2021-06-22 10:37:47', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 3, '2021-02-12 20:08:27', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 3, '2021-03-06 19:47:28', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 1, '2021-02-12 12:59:21', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 32, '2021-06-07 14:03:52', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 19, '2021-12-30 22:30:22', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 22, '2021-09-30 02:52:19', 7);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 2, '2021-12-30 01:01:38', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 39, '2021-12-06 20:29:06', 13);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 24, '2021-03-05 13:55:59', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 16, '2021-04-23 21:33:36', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 42, '2021-09-06 09:49:22', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 35, '2021-09-17 10:54:56', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 38, '2021-12-02 17:01:14', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 3, '2021-10-18 06:34:21', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 26, '2021-03-01 09:11:32', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 37, '2021-06-20 00:24:29', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 21, '2021-09-22 05:12:18', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 11, '2021-11-19 15:30:20', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 14, '2021-05-31 00:16:57', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 42, '2021-01-12 11:16:01', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 20, '2021-12-16 09:49:56', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 1, '2021-02-16 05:33:42', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 17, '2021-12-24 18:29:16', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 29, '2021-06-03 02:21:48', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 41, '2021-04-20 15:34:51', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 15, '2021-05-11 02:51:04', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 17, '2021-04-15 15:12:54', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 17, '2021-01-26 10:26:01', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 39, '2021-07-11 18:41:45', 7);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 10, '2021-09-27 13:28:08', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 17, '2021-05-07 14:27:38', 9);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 18, '2021-06-04 08:52:12', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 24, '2021-01-03 08:09:00', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 23, '2021-08-12 01:50:46', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 11, '2021-12-17 09:30:12', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 37, '2021-05-16 12:17:13', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 40, '2021-11-01 17:39:22', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 34, '2021-10-11 15:04:29', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 33, '2021-05-30 23:19:20', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 3, '2021-12-16 05:53:25', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 8, '2021-07-24 22:51:49', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 12, '2021-02-28 01:52:38', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 18, '2021-01-01 00:21:43', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 42, '2021-12-08 19:55:04', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 11, '2021-11-04 22:24:58', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 38, '2021-03-21 15:35:38', 9);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 35, '2021-02-17 01:26:43', 13);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 11, '2021-10-15 23:23:51', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 32, '2021-02-24 20:00:58', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 1, '2021-05-06 10:21:00', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 3, '2021-07-24 19:53:03', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 2, '2021-03-18 19:11:40', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 13, '2021-03-03 03:37:31', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 10, '2021-10-21 09:51:06', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 25, '2021-05-19 08:51:16', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 18, '2021-04-15 11:48:34', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 39, '2021-05-08 15:16:47', 11);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 4, '2021-07-27 22:14:29', 7);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 17, '2021-02-11 15:11:02', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 34, '2021-09-20 23:16:27', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 35, '2021-05-12 02:59:30', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 37, '2021-06-21 22:35:51', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 30, '2021-10-05 18:46:02', 13);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 34, '2021-11-17 03:25:25', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 17, '2021-09-19 01:10:20', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 6, '2021-05-25 13:39:52', 13);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 6, '2021-05-14 06:56:45', 9);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 23, '2021-10-07 09:38:58', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 25, '2021-01-28 02:07:54', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 38, '2021-07-23 09:49:08', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 41, '2021-01-03 23:20:24', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 42, '2021-09-19 20:00:49', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 39, '2021-06-01 07:43:19', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 3, '2021-09-07 00:14:12', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 17, '2021-09-22 09:33:36', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 27, '2021-10-01 21:52:34', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 20, '2021-08-18 05:51:24', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 9, '2021-08-09 09:07:38', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 1, '2021-05-26 06:38:15', 18);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 33, '2021-12-02 19:01:50', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 26, '2021-06-05 13:14:05', 1);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 1, '2021-06-22 13:24:32', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 7, '2021-11-28 21:45:40', 17);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 21, '2021-09-28 15:52:58', 1);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 3, '2021-10-12 05:49:37', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 30, '2021-07-31 02:46:31', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 25, '2021-06-23 20:37:27', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 16, '2021-12-13 08:35:45', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 31, '2021-06-02 10:59:36', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 4, '2021-11-09 10:16:48', 5);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 23, '2021-01-12 02:17:40', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 1, '2021-06-09 08:24:45', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 40, '2021-03-02 16:36:48', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 19, '2021-08-02 07:27:07', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 33, '2021-07-27 15:47:18', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 9, '2021-02-16 18:06:00', 1);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 30, '2021-08-05 05:11:17', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 4, '2021-02-02 23:33:14', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 13, '2021-03-30 20:30:25', 15);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 32, '2021-09-19 01:24:36', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 20, '2021-04-25 06:19:04', 10);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 2, '2021-10-23 11:04:21', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (3, 36, '2021-08-02 18:14:43', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 10, '2021-04-04 12:32:51', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 22, '2021-10-17 21:26:00', 20);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (11, 28, '2021-04-04 21:32:38', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (9, 2, '2021-06-08 19:46:23', 8);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 16, '2021-08-27 00:58:12', 13);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (10, 26, '2021-07-07 08:12:46', 7);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 40, '2021-06-11 03:01:24', 19);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (8, 41, '2021-12-07 10:59:11', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 18, '2021-04-25 17:20:03', 3);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (2, 17, '2021-12-16 07:42:38', 12);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 40, '2021-06-27 08:23:39', 4);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (5, 42, '2021-12-17 15:23:01', 14);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 30, '2021-09-24 04:18:24', 2);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (7, 37, '2021-12-30 14:55:15', 16);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (6, 4, '2021-03-13 22:10:13', 6);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (1, 37, '2021-10-10 14:51:43', 1);
+insert into polls_receipt (trade_point_id, customer_id, date, employee_id) values (4, 1, '2021-07-27 23:11:21', 2);
+
 
 insert into polls_receiptitem (receipt_id, product_id, amount, price) values (74, 90, 5, 19);
 insert into polls_receiptitem (receipt_id, product_id, amount, price) values (70, 80, 1, 19);
@@ -913,56 +913,56 @@ insert into polls_requestitem(product_id, request_id, amount) values
     (35,30,275),
     (90,24,498);
 
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 7, 45, true, '2021-03-23');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (19, 4, 67, true, '2021-01-12');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 71, 70, false, '2021-12-18');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 14, 83, false, '2021-09-10');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 65, 72, true, '2021-09-15');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 49, 16, false, '2021-12-14');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (12, 58, 32, true, '2021-11-29');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 46, 85, true, '2021-11-28');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (7, 51, 55, false, '2021-10-23');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 14, 93, true, '2021-05-12');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 52, 22, true, '2021-08-28');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 42, 38, true, '2021-08-25');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 79, 40, false, '2021-09-23');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (9, 30, 14, false, '2021-03-23');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 49, 72, true, '2021-08-15');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 68, 89, false, '2021-03-19');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 28, 27, true, '2021-02-08');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (6, 36, 12, true, '2021-03-18');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 28, 24, true, '2021-12-10');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 6, 43, false, '2021-04-14');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (18, 76, 66, false, '2021-11-18');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 27, 73, false, '2021-04-13');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 26, 28, true, '2021-10-06');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 63, 49, false, '2021-08-27');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 43, 94, false, '2021-05-01');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 24, 66, false, '2021-04-08');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 29, 84, false, '2021-06-24');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 31, 15, false, '2021-10-17');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (2, 3, 81, true, '2021-10-22');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 1, 82, true, '2021-08-02');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 15, 73, true, '2021-11-06');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (2, 83, 64, false, '2021-01-12');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 41, 50, true, '2021-11-03');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 80, 39, false, '2021-02-22');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (1, 43, 96, true, '2021-09-08');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 3, 71, true, '2021-12-21');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (18, 6, 42, true, '2021-01-09');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (13, 43, 25, false, '2021-07-25');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (4, 88, 25, true, '2021-01-13');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (3, 45, 72, false, '2021-06-11');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 20, 81, false, '2021-10-09');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (5, 10, 92, true, '2021-12-19');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (9, 50, 98, true, '2021-01-05');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (11, 87, 30, false, '2021-05-16');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (7, 5, 19, false, '2021-12-09');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (20, 81, 83, true, '2021-09-29');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (8, 78, 90, false, '2021-03-06');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (15, 40, 23, false, '2021-02-07');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (14, 88, 68, true, '2021-06-19');
-insert into polls_distributorproduct (distributor_id, product_id, price, offer_is_active, offer_start_date) values (10, 51, 92, false, '2021-05-04');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (5, 7, 45, '2020-03-23', '2021-03-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (19, 4, 67,'2020-01-12',  '2021-01-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (13, 71, 70,'2020-12-18', '2021-12-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (1, 14, 83, '2020-09-10', '2021-09-10');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (4, 65, 72, '2020-09-15', '2021-09-15');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (4, 49, 16, '2020-12-14', '2021-12-14');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (12, 58, 32,'2020-11-29', '2021-11-29');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (10, 46, 85,'2020-11-28', '2021-11-28');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (7, 51, 55, '2020-10-23', '2021-10-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (5, 14, 93,'2020-05-12',  '2021-05-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (3, 52, 22, '2020-08-28' ,'2021-08-28');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (14, 42, 38,'2020-08-25', '2021-08-25');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (8, 79, 40,'2020-09-23' , '2021-09-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (9, 30, 14, '2020-03-23', '2021-03-23');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (11, 49, 72,'2020-08-15', '2021-08-15');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (20, 68, 89,'2020-03-19', '2021-03-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (14, 28, 27,'2020-02-08', '2021-02-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (6, 36, 12, '2020-03-18', '2021-03-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (20, 28, 24,'2020-12-10', '2021-12-10');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (10, 6, 43, '2020-04-14', '2021-04-14');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (18, 76, 66,'2020-11-18', '2021-11-18');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (11, 27, 73,'2020-04-13', '2021-04-13');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (8, 26, 28, '2020-10-06', '2021-10-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (14, 63, 49,'2020-08-27', '2021-08-27');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (1, 43, 94, '2020-05-01',  '2021-05-01');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (13, 24, 66,'2020-04-08', '2021-04-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (5, 29, 84,  '2020-06-24', '2021-06-24');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (20, 31, 15,'2020-10-17', '2021-10-17');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (2, 3, 81, '2020-10-22','2021-10-22');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (5, 1, 82, '2020-08-02','2021-08-02');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (4, 15, 73,'2020-11-06',  '2021-11-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (2, 83, 64, '2020-01-12', '2021-01-12');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (3, 41, 50, '2020-11-03', '2021-11-03');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (4, 80, 39, '2020-02-22', '2021-02-22');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (1, 43, 96, '2020-09-08', '2021-09-08');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (11, 3, 71, '2020-12-21', '2021-12-21');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (18, 6, 42, '2020-01-09', '2021-01-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (13, 43, 25,'2020-07-25', '2021-07-25');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (4, 88, 25, '2020-01-13', '2021-01-13');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (3, 45, 72, '2020-06-11', '2021-06-11');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (10, 20, 81,'2020-10-09', '2021-10-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (5, 10, 92, '2020-12-19', '2021-12-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (9, 50, 98, '2020-01-05', '2021-01-05');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (11, 87, 30,'2020-05-16', '2021-05-16');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (7, 5, 19,  '2020-12-09', '2021-12-09');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (20, 81, 83,'2020-09-29', '2021-09-29');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (8, 78, 90, '2020-03-06', '2021-03-06');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (15, 40, 23,'2020-02-07','2021-02-07');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (14, 88, 68,'2020-06-19', '2021-06-19');
+insert into polls_distributorproduct (distributor_id, product_id, price, offer_end_date, offer_start_date) values (10, 51, 92,'2020-05-04', '2021-05-04');
 
 insert into polls_soldproduct (product_id, trade_point_id, in_stock, price) values
     (35,3,508,35),

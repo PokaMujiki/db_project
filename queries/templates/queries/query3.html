@@ -1,0 +1,33 @@
+{% extends 'queries/querytemplate.html' %}
+
+{% block title %}<h3>3 Получить номенклатуру и объем товаров в указанной торговой точке.
+    </h3>{% endblock %}
+
+{% block content %}
+    <form class="form" action="{% url 'query3' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="margin-bottom: 1%">Поиск</button>
+    </form>
+
+    <table class="table-bordered" style="text-align: center">
+    {% if data %}
+        <td style="padding: 0 6px 0 6px">Product</td>
+        <td style="padding: 0 6px 0 6px">In stock</td>
+        <td style="padding: 0 6px 0 6px">Price</td>
+    {% endif %}
+
+    {% for i in data %}
+        <tr>
+            <td style="padding: 0 6px 0 6px">{{ i.product_name }}</td>
+            <td style="padding: 0 6px 0 6px">{{ i.in_stock }}</td>
+            <td style="padding: 0 6px 0 6px">{{ i.product_price }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% if data %}
+        <p></p>
+    Number of products of different types: {{ data|length }}
+    {% endif %}
+
+{% endblock %}

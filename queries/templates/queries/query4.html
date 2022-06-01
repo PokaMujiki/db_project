@@ -1,0 +1,33 @@
+{% extends 'queries/querytemplate.html' %}
+
+{% block title %}<h3>4 Получить сведения об объеме и ценах на указанный товар по всем торговым точкам, по
+торговым точкам заданного типа, по конкретной торговой точке.
+    </h3>{% endblock %}
+
+{% block content %}
+    {% if warning %}
+    <h3> {{ warning }} </h3>
+    {% endif %}
+    <form class="form" action="{% url 'query4' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="margin-bottom: 1%">Поиск</button>
+    </form>
+
+    <table class="table-bordered" style="text-align: center">
+    {% if data %}
+        <td style="padding: 0 6px 0 6px">Trade point</td>
+        <td style="padding: 0 6px 0 6px">In stock</td>
+        <td style="padding: 0 6px 0 6px">Price</td>
+    {% endif %}
+
+    {% for i in data %}
+        <tr>
+            <td style="padding: 0 6px 0 6px">{{ i.trade_point_name }}</td>
+            <td style="padding: 0 6px 0 6px">{{ i.in_stock }}</td>
+            <td style="padding: 0 6px 0 6px">{{ i.price }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

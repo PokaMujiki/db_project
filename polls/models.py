@@ -103,7 +103,7 @@ class Receipt(models.Model):
     trade_point = models.ForeignKey(TradePoint, on_delete=models.PROTECT)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, null=True, blank=True)
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
-    date = models.DateField()
+    date = models.DateTimeField()
     receipt_item = models.ManyToManyField(Product, through='ReceiptItem',
                                           through_fields=('receipt', 'product_id'), related_name='receipt_items')
 
@@ -226,12 +226,12 @@ class DistributorProduct(models.Model):
     distributor = models.ForeignKey(Distributor, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.IntegerField(validators=[validate_gt_0])
-    offer_is_active = models.BooleanField()
     offer_start_date = models.DateField()
+    offer_end_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.distributor.name + " | " + self.product.name + " | price: " + str(self.price) +\
-               " | " + str(self.offer_start_date) + " | is active: " + str(self.offer_is_active)
+               " | " + str(self.offer_start_date) + " | is active: " + (self.offer_end_date is None)
 
 
 class ProductsOrder(models.Model):

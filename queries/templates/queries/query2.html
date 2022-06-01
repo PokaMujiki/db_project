@@ -1,0 +1,39 @@
+{% extends 'queries/querytemplate.html' %}
+
+{% block title %}<h3>2 Получить перечень и общее число покупателей, купивших указанный вид товара за
+некоторый период, либо сделавших покупку товара в объеме, не менее заданного.
+    </h3>{% endblock %}
+
+{% block content %}
+    {% if warning %}
+    <h3> {{ warning }} </h3>
+    {% endif %}
+    <form class="form" action="{% url 'query2' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="margin-bottom: 1%">Поиск</button>
+    </form>
+
+    <table class="table-bordered" style="text-align: center">
+    {% if data %}
+    <td style="padding: 0 6px 0 6px">Customers</td>
+         {% if   complicated_view %}
+             <td style="padding: 0 6px 0 6px">Amount</td>
+         {% endif %}
+    {% endif %}
+
+    {% for i in data %}
+        <tr>
+            <td style="padding: 0 6px 0 6px">{{ i.customer_name }}</td>
+            {% if   complicated_view %}
+                <td style="padding: 0 6px 0 6px">{{ i.product_amount }}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </table>
+    {% if data %}
+        <p></p>
+    Number of customers: {{ data|length }}
+    {% endif %}
+
+{% endblock %}

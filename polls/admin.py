@@ -4,7 +4,6 @@ from django.contrib import admin
 
 from .models import *
 
-
 admin.site.register(TradePointType)
 admin.site.register(TradePoint)
 admin.site.register(SomeStore)
@@ -13,7 +12,13 @@ admin.site.register(Employee)
 admin.site.register(Customer)
 admin.site.register(Product)
 admin.site.register(Receipt)
-admin.site.register(ReceiptItem)
+
+
+@admin.register(ReceiptItem)
+class ReceiptItemAdmin(admin.ModelAdmin):
+    list_display = ("receipt", "product", "amount")
+
+
 admin.site.register(Section)
 admin.site.register(Hall)
 admin.site.register(SoldProduct)
