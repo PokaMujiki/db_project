@@ -1,5 +1,5 @@
 select trade_points.name as trade_point_name,
-       sum(polls_receiptitem.price * polls_receiptitem.amount) / trade_points.employees_amount as profit
+       cast(sum(polls_receiptitem.price * polls_receiptitem.amount) as float4) / trade_points.employees_amount as profit
 from polls_receiptitem
 inner join (select *
             from polls_receipt

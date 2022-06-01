@@ -1,5 +1,5 @@
 select trade_points_halls_amount.point_name as point_name,
-       sum(polls_receiptitem.price * polls_receiptitem.amount) / trade_points_halls_amount.halls_amount as profit_div_halls_amount
+       cast(sum(polls_receiptitem.price * polls_receiptitem.amount) as float4) / trade_points_halls_amount.halls_amount as profit_div
 from polls_receipt
 inner join (select polls_tradepoint.id as id,
                    polls_tradepoint.name as point_name,
@@ -13,4 +13,4 @@ on polls_receipt.trade_point_id = trade_points_halls_amount.id
 inner join polls_receiptitem
 on polls_receipt.id = polls_receiptitem.receipt_id
 group by (trade_points_halls_amount.id, trade_points_halls_amount.point_name, trade_points_halls_amount.halls_amount)
-order by profit_div_halls_amount desc
+order by profit_div desc

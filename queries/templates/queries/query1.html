@@ -1,12 +1,12 @@
 {% extends 'queries/querytemplate.html' %}
 
-{% block title %}<h3>1 Получить перечень и общее число поставщиков, поставляющих указанный вид товара, либо
+{% block title %}<h3>1 Получить перечень и общее число поставщиков, поставляющих указанный вид товара, либо (поставивших)
     некоторый товар в объеме, не менее заданного за весь период сотрудничества, либо за указанный период.
     </h3>{% endblock %}
 
 {% block content %}
-    {% if error %}
-    <p> {{ error }} </p>
+    {% if warning %}
+    <h3> {{ warning }} </h3>
     {% endif %}
     <form class="form" action="{% url 'query1' %}" method="post">
     {% csrf_token %}
@@ -18,7 +18,6 @@
     {% if data %}
     <td style="padding: 0 6px 0 6px">Distributor name</td>
          {% if complicated_view %}
-             <td style="padding: 0 6px 0 6px">Product name</td>
              <td style="padding: 0 6px 0 6px">Product amount </td>
          {% endif %}
     {% endif %}
@@ -27,7 +26,6 @@
         <tr>
             <td style="padding: 0 6px 0 6px">{{ i.distributor_name }}</td>
             {% if complicated_view %}
-                <td style="padding: 0 6px 0 6px">{{ i.product_price }}</td>
                 <td style="padding: 0 6px 0 6px">{{ i.product_amount }}</td>
             {% endif %}
         </tr>

@@ -4,6 +4,9 @@
     </h3>{% endblock %}
 
 {% block content %}
+    {% if warning %}
+    <h3> {{ warning }} </h3>
+    {% endif %}
     <form class="form" action="{% url 'query3' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
