@@ -5,8 +5,24 @@ from django.contrib import admin
 from .models import *
 
 
+class RequestItemInline(admin.TabularInline):
+    model = RequestItem
+
+
 class SoldProductInline(admin.TabularInline):
     model = SoldProduct
+
+
+class DistributorProductInline(admin.TabularInline):
+    model = DistributorProduct
+
+
+class ProductsOrderItemInline(admin.TabularInline):
+    model = ProductOrderItem
+
+
+class ReceiptItemInline(admin.TabularInline):
+    model = ReceiptItem
 
 
 @admin.register(TradePointType)
@@ -18,6 +34,7 @@ class TradePointTypeDisplay(admin.ModelAdmin):
 class TradePointDisplay(admin.ModelAdmin):
     list_display = ("name", "point_type", "point_size", "rent_payment", "utilities_payment", "point_counter_amount")
     inlines = [SoldProductInline]
+
 
 @admin.register(Employee)
 class EmployeeDisplay(admin.ModelAdmin):
@@ -58,10 +75,7 @@ class HallDisplay(admin.ModelAdmin):
 @admin.register(Request)
 class RequestDisplay(admin.ModelAdmin):
     list_display = ("trade_point", "date")
-
-
-class DistributorProductInline(admin.TabularInline):
-    model = DistributorProduct
+    inlines = [RequestItemInline]
 
 
 @admin.register(Distributor)
@@ -73,10 +87,7 @@ class DistributorDisplay(admin.ModelAdmin):
 @admin.register(ProductsOrder)
 class ProductsOrderDisplay(admin.ModelAdmin):
     list_display = ("date", )
-
-
-class ReceiptItemInline(admin.TabularInline):
-    model = ReceiptItem
+    inlines = [ProductsOrderItemInline]
 
 
 @admin.register(Receipt)
