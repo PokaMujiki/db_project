@@ -42,3 +42,25 @@ class Query5Form(forms.Form):
     start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     trade_point_type = forms.ModelChoiceField(queryset=TradePointType.objects.all(), required=False)
+
+
+class Query6Form(forms.Form):
+    employee = forms.ModelChoiceField(queryset=Employee.objects.all())
+    trade_point = forms.ModelChoiceField(queryset=TradePoint.objects.all())
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+
+
+class Query7Form(forms.Form):
+    product = forms.ModelChoiceField(queryset=Product.objects.all())
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    trade_point_type = forms.ModelChoiceField(queryset=TradePointType.objects.all(), required=False)
+    trade_point = forms.ModelChoiceField(queryset=TradePoint.objects.all(), required=False)
+
+
+class Query8Form(forms.Form):
+    trade_point_type = forms.ModelChoiceField(queryset=TradePointType.objects.all(), required=False)
+    trade_point = forms.ModelChoiceField(queryset=TradePoint.objects.all(), required=False)
+
+

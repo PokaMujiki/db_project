@@ -251,3 +251,129 @@ def query5(request):
 
             data = dict_fetchall(cursor)
     return render(request, 'queries/query5.html', {'form': form, 'data': data})
+
+
+def query6(request):
+    if request.method != 'POST':
+        return render(request, 'queries/query6.html', {'form': Query6Form(), 'data': None})
+    data = None
+    form = Query6Form(request.POST)
+    if form.is_valid():
+        with connection.cursor() as cursor:
+            employee = form.cleaned_data.get("employee").pk
+            trade_point = form.cleaned_data.get("trade_point").pk
+            start_date = form.cleaned_data.get("start_date")
+            end_date = form.cleaned_data.get("end_date")
+
+            #todo start date > end date
+
+            cursor.execute("select employee.name as name,        sum(polls_receiptitem.price * "
+                           "polls_receiptitem.amount) as profit from polls_tradepoint inner join (select *            "
+                           " from polls_employee             where polls_employee.id = {0}) as employee on "
+                           "polls_tradepoint.id = {1} inner join polls_receipt on polls_tradepoint.id = "
+                           "polls_receipt.trade_point_id         and polls_receipt.employee_id = employee.id         "
+                           "and polls_receipt.date >= '{2}'         and polls_receipt.date <= '{3}' "
+                           "inner join polls_receiptitem on polls_receipt.id = polls_receiptitem.receipt_id group by "
+                           "(employee.id, employee.name) "
+                           .format(employee, trade_point, start_date, end_date))
+
+            data = dict_fetchall(cursor)
+    return render(request, 'queries/query6.html', {'form': form, 'data': data})
+
+
+def query7(request):
+    if request.method != 'POST':
+        return render(request, 'queries/query7.html', {'form': Query7Form(), 'data': None, 'warning': None})
+    data = None
+    warning = None
+    form = Query7Form(request.POST)
+    if form.is_valid():
+        with connection.cursor() as cursor:
+            product = form.cleaned_data.get("product").pk
+            start_date = form.cleaned_data.get("start_date")
+            end_date = form.cleaned_data.get("end_date")
+            trade_point_type = None
+            trade_point = None
+            if form.cleaned_data.get("trade_point_type") is not None:
+                trade_point_type = form.cleaned_data.get("trade_point_type").pk
+            if form.cleaned_data.get("trade_point") is not None:
+                trade_point = form.cleaned_data.get("trade_point").pk
+
+            #todo start date > end date
+
+            if trade_point_type is None and trade_point is None:
+                cursor.execute("select polls_tradepoint.name as point_name,        sum(polls_receiptitem.amount * "
+                               "polls_receiptitem.price) as profit from polls_receiptitem inner join (select *        "
+                               "     from polls_product             where polls_product.id = {0}) as product on "
+                               "polls_receiptitem.product_id = product.id inner join polls_receipt on "
+                               "polls_receiptitem.receipt_id = polls_receipt.id        and polls_receipt.date >= "
+                               "'{1}'        and polls_receipt.date <= '{2}' inner join "
+                               "polls_tradepoint on polls_receipt.trade_point_id = polls_tradepoint.id group by ("
+                               "polls_tradepoint.id, polls_tradepoint.name) "
+                               .format(product, start_date, end_date))
+            elif trade_point is not None:
+                if trade_point_type is not None:
+                    warning = "Trade point type is ignored because concrete trade point is specified"
+                cursor.execute("select polls_tradepoint.name as point_name,        sum(polls_receiptitem.amount * "
+                               "polls_receiptitem.price) as profit from polls_receiptitem inner join (select *        "
+                               "     from polls_product             where polls_product.id = {0}) as product on "
+                               "polls_receiptitem.product_id = product.id inner join polls_receipt on "
+                               "polls_receiptitem.receipt_id = polls_receipt.id        and polls_receipt.date >= "
+                               "'{1}'        and polls_receipt.date <= '{2}' inner join "
+                               "polls_tradepoint on polls_tradepoint.id = {3}        and polls_receipt.trade_point_id = "
+                               "polls_tradepoint.id group by (polls_tradepoint.id, polls_tradepoint.name) "
+                               .format(product, start_date, end_date, trade_point))
+            else:
+                cursor.execute("select polls_tradepoint.name as point_name,        sum(polls_receiptitem.amount * "
+                               "polls_receiptitem.price) as profit from polls_receiptitem inner join (select *        "
+                               "     from polls_product             where polls_product.id = {0}) as product on "
+                               "polls_receiptitem.product_id = product.id inner join polls_receipt on "
+                               "polls_receiptitem.receipt_id = polls_receipt.id        and polls_receipt.date >= "
+                               "'{1}'        and polls_receipt.date <= '{2}' inner join "
+                               "polls_tradepoint on polls_tradepoint.point_type_id = {3}        and "
+                               "polls_receipt.trade_point_id = polls_tradepoint.id group by (polls_tradepoint.id, "
+                               "polls_tradepoint.name) "
+                               .format(product, start_date, end_date, trade_point_type))
+
+            data = dict_fetchall(cursor)
+    return render(request, 'queries/query7.html', {'form': form, 'data': data, 'warning': warning})
+
+
+def query8(request):
+    if request.method != 'POST':
+        return render(request, 'queries/query8.html', {'form': Query8Form(), 'data': None, 'warning': None})
+    data = None
+    warning = None
+    form = Query8Form(request.POST)
+    if form.is_valid():
+        with connection.cursor() as cursor:
+            trade_point_type = None
+            trade_point = None
+            if form.cleaned_data.get("trade_point_type") is not None:
+                trade_point_type = form.cleaned_data.get("trade_point_type").pk
+            if form.cleaned_data.get("trade_point") is not None:
+                trade_point = form.cleaned_data.get("trade_point").pk
+
+            if trade_point is not None:
+                if trade_point_type is not None:
+                    warning = "Trade point type is ignored because concrete trade point is specified"
+                cursor.execute("select polls_employee.name as employee_name,        polls_tradepoint.name as "
+                               "point_name,        polls_employee.salary as employee_salary from polls_employee inner "
+                               "join polls_tradepoint on polls_tradepoint.id = {0}        and "
+                               "polls_employee.working_point_id = polls_tradepoint.id order by polls_employee.salary "
+                               "desc"
+                               .format(trade_point))
+            elif trade_point_type is not None:
+                cursor.execute("select polls_employee.name as employee_name,        polls_tradepoint.name as "
+                               "point_name,        polls_employee.salary as employee_salary from polls_employee inner "
+                               "join polls_tradepoint on polls_tradepoint.point_type_id = {0}        and "
+                               "polls_employee.working_point_id = polls_tradepoint.id order by polls_employee.salary "
+                               "desc"
+                               .format(trade_point_type))
+            else:
+                cursor.execute("select polls_employee.name as employee_name,        polls_tradepoint.name as "
+                               "point_name,        polls_employee.salary as employee_salary from polls_employee inner "
+                               "join polls_tradepoint on polls_employee.working_point_id = polls_tradepoint.id order "
+                               "by polls_employee.salary desc")
+            data = dict_fetchall(cursor)
+    return render(request, 'queries/query8.html', {'form': form, 'data': data, 'warning': warning})
